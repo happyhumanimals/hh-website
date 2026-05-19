@@ -1,0 +1,8 @@
+<section class="hh-testimonials">
+  {{ range .Params.testimonials }}
+  <blockquote>
+    <p>{{ .quote }}</p>
+    <p class="attribution">— {{ .name }}, {{ .location }}</p>
+  </blockquote>
+  {{ end }}
+</section>

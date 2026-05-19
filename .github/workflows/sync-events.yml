@@ -1,0 +1,90 @@
+name: Sync Eventbrite events
+
+on:
+  schedule:
+    - cron: "0 8 * * *"  # 8:00 UTC = midnight Pacific (approx)
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch Eventbrite events
+        env:
+          EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN }}
+          EVENTBRITE_ORG_ID: ${{ secrets.EVENTBRITE_ORG_ID }}
+        run: |
+          python3 - <<'EOF'
+          import json, os, urllib.request, datetime
+
+          token = os.environ["EVENTBRITE_TOKEN"]
+          org_id = os.environ["EVENTBRITE_ORG_ID"]
+
+          url = (
+            f"https://www.eventbriteapi.com/v3/organizers/{org_id}/events/"
+            f"?status=live&expand=venue&order_by=start_asc&token={token}"
+          )
+          with urllib.request.urlopen(url) as r:
+            data = json.loads(r.read())
+
+          events = []
+          now = datetime.datetime.now(datetime.timezone.utc)
+          for ev in data.get("events", []):
+            start_utc = datetime.datetime.fromisoformat(
+              ev["start"]["utc"].replace("Z", "+00:00")
+            )
+            if start_utc < now:
+              continue
+
+            start_local = start_utc.astimezone(
+              datetime.timezone(datetime.timedelta(hours=-7))
+            )
+            end_local = datetime.datetime.fromisoformat(
+              ev["end"]["utc"].replace("Z", "+00:00")
+            ).astimezone(datetime.timezone(datetime.timedelta(hours=-7)))
+
+            date_display = (
+              start_local.strftime("%A, %B %-d")
+              + " · "
+              + start_local.strftime("%-I:%M")
+              + "–"
+              + end_local.strftime("%-I:%M %p")
+            )
+
+            sold_out = ev.get("status") == "sold_out"
+
+            venue = ev.get("venue") or {}
+            location = venue.get("address", {}).get("city", "Seattle") + ", WA"
+
+            ticket_url = (
+              ev["url"]
+              + "?utm_source=website&utm_medium=events_widget&utm_campaign=launch"
+            )
+
+            events.append({
+              "title": ev["name"]["text"],
+              "date_display": date_display,
+              "date_iso": ev["start"]["local"],
+              "location": location,
+              "ticket_url": ticket_url,
+              "sold_out": sold_out,
+            })
+
+          with open("data/events.json", "w") as f:
+            json.dump(events, f, indent=2)
+
+          print(f"Wrote {len(events)} event(s) to data/events.json")
+          EOF
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/events.json
+          git diff --staged --quiet || git commit -m "chore: sync Eventbrite events"
+          git push

@@ -1,0 +1,22 @@
+{{ $events := site.Data.events }}
+<section class="hh-events">
+  <h2>Upcoming events</h2>
+  {{ if $events }}
+    {{ range $events }}
+    <div class="hh-event-card">
+      <div class="event-info">
+        <div class="event-title">{{ .title }}</div>
+        <div class="event-meta">{{ .date_display }} · {{ .location }}</div>
+        {{ if .sold_out }}<div class="event-status-full">Sold out</div>{{ end }}
+      </div>
+      {{ if not .sold_out }}
+      <a href="{{ .ticket_url }}" class="hh-btn" target="_blank" rel="noopener">Register</a>
+      {{ else }}
+      <a href="{{ .ticket_url }}" class="hh-btn-secondary" target="_blank" rel="noopener">Join waitlist</a>
+      {{ end }}
+    </div>
+    {{ end }}
+  {{ else }}
+  <p>No upcoming events listed. <a href="{{ site.Params.eventbriteUrl }}" target="_blank" rel="noopener">Check Eventbrite</a> for the latest.</p>
+  {{ end }}
+</section>

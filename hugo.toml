@@ -1,0 +1,40 @@
+baseURL = "https://cuddleseattle.com/"
+languageCode = "en-US"
+title = "Happy Humanimals"
+theme = "congo"
+
+[params]
+  colorScheme = "purple"
+  defaultAppearance = "light"
+  autoSwitchAppearance = false
+  description = "Platonic touch and consent workshops in Seattle. Cuddles & Connection events for curious, hopeful, and nervous newcomers."
+  mainSections = []
+  eventbriteUrl = "https://www.eventbrite.com/o/happy-humanimals-96238990603"
+  canonicalURL = true
+
+[params.homepage]
+  layout = "custom"
+  showRecent = false
+
+[params.header]
+  layout = "basic"
+
+[params.footer]
+  showCopyright = true
+  showThemeAttribution = false
+
+[params.article]
+  showDate = false
+  showAuthor = false
+  showReadingTime = false
+  showTableOfContents = false
+
+[menus]
+  [[menus.main]]
+    name = "Home"
+    pageRef = "/"
+    weight = 1
+  [[menus.main]]
+    name = "Learn More"
+    pageRef = "/learn-more"
+    weight = 2

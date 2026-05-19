@@ -1,0 +1,83 @@
+{{ $events := site.Data.events }}
+
+<!-- Hero -->
+<section class="hh-hero">
+  <h1>{{ .Params.heroHeading | default "We're glad you're here." }}</h1>
+  <p class="subtitle">{{ .Params.heroSubtitle | default "" }}</p>
+  <a href="{{ .Params.eventbriteUrl | default site.Params.eventbriteUrl }}?utm_source=website&utm_medium=hero_cta&utm_campaign=launch" class="hh-btn" target="_blank" rel="noopener">{{ .Params.heroCta | default "See upcoming events" }}</a>
+</section>
+
+<!-- Body copy -->
+<div class="hh-body prose">
+  {{ .Content }}
+</div>
+
+<!-- Testimonials -->
+{{ partial "testimonials.html" . }}
+
+<!-- Events widget -->
+<section class="hh-events">
+  <h2>Upcoming events</h2>
+  {{ if $events }}
+    {{ range $events }}
+    <div class="hh-event-card">
+      <div class="event-info">
+        <div class="event-title">{{ .title }}</div>
+        <div class="event-meta">{{ .date_display }} · {{ .location }}</div>
+        {{ if .sold_out }}<div class="event-status-full">Sold out</div>{{ end }}
+      </div>
+      {{ if not .sold_out }}
+      <a href="{{ .ticket_url }}" class="hh-btn" target="_blank" rel="noopener">Register</a>
+      {{ else }}
+      <a href="{{ .ticket_url }}" class="hh-btn-secondary" target="_blank" rel="noopener">Join waitlist</a>
+      {{ end }}
+    </div>
+    {{ end }}
+  {{ else }}
+  <p>No upcoming events listed yet. <a href="{{ site.Params.eventbriteUrl }}" target="_blank" rel="noopener">Check Eventbrite</a> for the latest.</p>
+  {{ end }}
+</section>
+
+<!-- Event JSON-LD -->
+{{ if $events }}
+<script type="application/ld+json">
+[
+  {{ range $i, $e := $events }}
+  {{ if $i }},{{ end }}
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": {{ $e.title | jsonify }},
+    "startDate": {{ $e.date_iso | jsonify }},
+    "location": {
+      "@type": "Place",
+      "name": "Seattle, WA",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Seattle",
+        "addressRegion": "WA"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Happy Humanimals",
+      "url": "https://cuddleseattle.com"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": {{ $e.ticket_url | jsonify }},
+      "availability": {{ if $e.sold_out }}"https://schema.org/SoldOut"{{ else }}"https://schema.org/InStock"{{ end }}
+    },
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+  }
+  {{ end }}
+]
+</script>
+{{ end }}
+
+<!-- Secondary CTA -->
+<div class="hh-secondary-cta">
+  <p>Need more info?</p>
+  <a href="/learn-more" class="hh-btn-secondary">Learn more about our events and facilitators</a>
+</div>
