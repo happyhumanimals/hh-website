@@ -48,6 +48,14 @@ h1, h2, h3, h4 {
   font-weight: 400;
 }
 
+/* Congo/Tailwind prose overrides prose h2-h4 to 700+ and article title to extrabold.
+   Force all headings to our light serif weight. */
+article > header > h1,
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-weight: 400 !important;
+  font-family: 'DM Serif Display', Georgia, serif;
+}
+
 /* Hero image */
 .hh-hero-image {
   max-width: 960px;
@@ -58,6 +66,9 @@ h1, h2, h3, h4 {
 .hh-hero-image img {
   width: 100%;
   height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  object-position: center top;
   border-radius: 0.5rem;
   display: block;
 }
@@ -164,6 +175,16 @@ h1, h2, h3, h4 {
   max-width: 680px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
+}
+
+/* Inside prose (learn-more shortcode), strip horizontal padding so
+   the widget aligns with surrounding headings. */
+.prose .hh-events {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .hh-events h2 {
