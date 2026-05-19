@@ -2,6 +2,7 @@ baseURL = "https://cuddleseattle.com/"
 languageCode = "en-US"
 title = "Happy Humanimals"
 theme = "congo"
+enableRobotsTXT = true
 
 [params]
   colorScheme = "purple"

@@ -1,6 +1,8 @@
 ---
 title: "Happy Humanimals"
-description: "Platonic touch and consent workshops in Seattle. A welcoming, safe space for curious newcomers."
+seoTitle: "Happy Humanimals — Cuddle Party–Style Events in Seattle"
+description: "Cuddle Party–style events in Seattle for adults seeking nourishing, consent-based platonic touch and community. Workshops + open connection time."
+images: ["images/cuddles-and-connection.jpg"]
 heroHeading: "We're glad you're here."
 heroSubtitle: "Whether you're curious, hopeful, or uncertain, this is for you."
 heroCta: "See upcoming events"
