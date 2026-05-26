@@ -14,5 +14,21 @@
     "location": "Seattle, WA",
     "ticket_url": "https://www.eventbrite.com/e/cuddles-connection-tickets-1987375129511",
     "sold_out": false
+  },
+  {
+    "title": "Cuddles & Connection",
+    "date_display": "Friday, July 10 \u00b7 6:00\u201310:00 PM",
+    "date_iso": "2026-07-10T18:00:00",
+    "location": "Seattle, WA",
+    "ticket_url": "https://www.eventbrite.com/e/cuddles-connection-tickets-1990351124793",
+    "sold_out": false
+  },
+  {
+    "title": "Men's Cuddles & Connection",
+    "date_display": "Friday, August 14 \u00b7 6:00\u201310:00 PM",
+    "date_iso": "2026-08-14T18:00:00",
+    "location": "Seattle, WA",
+    "ticket_url": "https://www.eventbrite.com/e/mens-cuddles-connection-tickets-1990353660377",
+    "sold_out": false
   }
 ]
