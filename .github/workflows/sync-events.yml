@@ -82,7 +82,6 @@ jobs:
               "title": ev["name"]["text"],
               "date_display": date_display,
               "date_iso": start_local.isoformat(),
-              "date_iso_end": end_local.isoformat(),
               "ticket_url": ticket_url,
             }
             if location:
