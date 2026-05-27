@@ -37,9 +37,10 @@ jobs:
             data = json.loads(r.read())
 
           seattle_tz = ZoneInfo("America/Los_Angeles")
+          raw_events = data.get("events", [])
           events = []
           now = datetime.datetime.now(datetime.timezone.utc)
-          for ev in data.get("events", []):
+          for ev in raw_events:
             title = ev["name"]["text"]
             # Website is positioned for first-time newcomers; only surface
             # foundational events. Returner-only events (e.g. Extended Play)
@@ -83,13 +84,13 @@ jobs:
               "sold_out": sold_out,
             })
 
-          if len(events) == 0:
+          if len(events) == 0 and len(raw_events) > 0:
             try:
               existing = json.loads(open("data/events.json").read())
             except Exception:
               existing = []
             if existing:
-              print("WARNING: 0 events passed filters (API may have returned data but all were filtered out or in the past) — skipping write to avoid silent wipe.")
+              print("WARNING: API returned events but 0 passed filters — skipping write to avoid silent wipe.")
               raise SystemExit(1)
 
           with open("data/events.json", "w") as f:
