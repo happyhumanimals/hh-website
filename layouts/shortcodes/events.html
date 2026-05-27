@@ -21,35 +21,10 @@
   {{ end }}
 </section>
 {{ range $events }}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Event",
-  "name": {{ .title | jsonify }},
-  "startDate": {{ .date_iso | jsonify }},
-  "eventStatus": "https://schema.org/EventScheduled",
-  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-  "location": {
-    "@type": "Place",
-    "name": {{ .location | jsonify }},
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Seattle",
-      "addressRegion": "WA",
-      "addressCountry": "US"
-    }
-  },
-  "organizer": {
-    "@type": "Organization",
-    "name": "Happy Humanimals",
-    "url": "https://cuddleseattle.com"
-  },
-  "offers": {
-    "@type": "Offer",
-    "url": {{ .ticket_url | jsonify }},
-    "availability": "{{ if .sold_out }}https://schema.org/SoldOut{{ else }}https://schema.org/InStock{{ end }}"
-  },
-  "sameAs": {{ .ticket_url | jsonify }}
-}
-</script>
+{{ $loc := dict "@type" "Place" "name" .location "address" (dict "@type" "PostalAddress" "addressLocality" "Seattle" "addressRegion" "WA" "addressCountry" "US") }}
+{{ $availability := cond .sold_out "https://schema.org/SoldOut" "https://schema.org/InStock" }}
+{{ $offers := dict "@type" "Offer" "url" .ticket_url "availability" $availability }}
+{{ $schema := dict "@context" "https://schema.org" "@type" "Event" "name" .title "startDate" .date_iso "eventStatus" "https://schema.org/EventScheduled" "eventAttendanceMode" "https://schema.org/OfflineEventAttendanceMode" "location" $loc "organizer" (dict "@type" "Organization" "name" "Happy Humanimals" "url" "https://cuddleseattle.com") "offers" $offers "sameAs" .ticket_url }}
+{{ with .date_iso_end }}{{ $schema = merge $schema (dict "endDate" .) }}{{ end }}
+<script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
 {{ end }}
