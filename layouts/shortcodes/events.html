@@ -20,3 +20,36 @@
   <p>No upcoming events listed. <a href="{{ site.Params.eventbriteUrl }}" target="_blank" rel="noopener">Check Eventbrite</a> for the latest.</p>
   {{ end }}
 </section>
+{{ range $events }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": {{ .title | jsonify }},
+  "startDate": {{ .date_iso | jsonify }},
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": {{ .location | jsonify }},
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Seattle",
+      "addressRegion": "WA",
+      "addressCountry": "US"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Happy Humanimals",
+    "url": "https://cuddleseattle.com"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": {{ .ticket_url | jsonify }},
+    "availability": "{{ if .sold_out }}https://schema.org/SoldOut{{ else }}https://schema.org/InStock{{ end }}"
+  },
+  "sameAs": {{ .ticket_url | jsonify }}
+}
+</script>
+{{ end }}

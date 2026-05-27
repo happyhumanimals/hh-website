@@ -79,6 +79,15 @@ jobs:
               "sold_out": sold_out,
             })
 
+          if len(events) == 0:
+            try:
+              existing = json.loads(open("data/events.json").read())
+            except Exception:
+              existing = []
+            if existing:
+              print("WARNING: API returned 0 events but existing file has entries — skipping write to avoid silent wipe.")
+              raise SystemExit(1)
+
           with open("data/events.json", "w") as f:
             json.dump(events, f, indent=2)
 
