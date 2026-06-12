@@ -26,7 +26,7 @@
     </div>
     {{ end }}
   {{ else }}
-  <p>No upcoming events listed. <a href="{{ site.Params.eventbriteUrl }}" target="_blank" rel="noopener">Check Eventbrite</a> for the latest.</p>
+  <p>{{ if $cncOnly }}No Cuddles & Connection events listed{{ else }}No upcoming events listed{{ end }}. <a href="{{ site.Params.eventbriteUrl }}" target="_blank" rel="noopener">Check Eventbrite</a> for the latest.</p>
   {{ end }}
   {{ if $cncOnly }}
   <p class="hh-events-more"><small>Been before? <a href="{{ (site.GetPage "/events").RelPermalink }}">See all events</a>.</small></p>
