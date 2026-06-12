@@ -29,6 +29,6 @@
   <p>No upcoming events listed. <a href="{{ site.Params.eventbriteUrl }}" target="_blank" rel="noopener">Check Eventbrite</a> for the latest.</p>
   {{ end }}
   {{ if $cncOnly }}
-  <p class="hh-events-more"><small>Been before? <a href="{{ (site.GetPage "/events").RelPermalink }}">See all events</a></small></p>
+  <p class="hh-events-more"><small>Been before? <a href="{{ (site.GetPage "/events").RelPermalink }}">See all events</a>.</small></p>
   {{ end }}
 </section>
