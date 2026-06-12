@@ -1,0 +1,34 @@
+{{ $events := site.Data.events }}
+{{ $cncOnly := .cncOnly }}
+{{ $heading := .heading }}
+{{ $utmContent := .utmContent | default "events-widget" }}
+
+{{ if $cncOnly }}
+  {{ $filtered := slice }}
+  {{ range $events }}
+    {{ if in .title "Cuddles & Connection" }}
+      {{ $filtered = $filtered | append . }}
+    {{ end }}
+  {{ end }}
+  {{ $events = $filtered }}
+{{ end }}
+
+<section class="hh-events">
+  {{ if $heading }}<h2>{{ $heading }}</h2>{{ end }}
+  {{ if $events }}
+    {{ range $events }}
+    <div class="hh-event-card">
+      <div class="event-info">
+        <div class="event-title">{{ .title }}</div>
+        <div class="event-meta">{{ .date_display }}{{ with .location }} · {{ . }}{{ end }}</div>
+      </div>
+      <a href="{{ .ticket_url }}?utm_source=cuddleseattle&utm_medium=website&utm_content={{ $utmContent }}" class="hh-btn" target="_blank" rel="noopener">Register</a>
+    </div>
+    {{ end }}
+  {{ else }}
+  <p>No upcoming events listed. <a href="{{ site.Params.eventbriteUrl }}" target="_blank" rel="noopener">Check Eventbrite</a> for the latest.</p>
+  {{ end }}
+  {{ if $cncOnly }}
+  <p class="hh-events-more"><small>Been before? <a href="{{ (site.GetPage "/events").RelPermalink }}">See all events</a></small></p>
+  {{ end }}
+</section>

@@ -1,5 +1,3 @@
-{{ $events := site.Data.events }}
-
 <!-- Hero image -->
 <div class="hh-hero-image">
   <img src="{{ "images/cuddles-and-connection.jpg" | relURL }}" alt="Illustration of five people in cozy clothing on a floor mattress — two cuddling, three in conversation." width="1600" height="1066" fetchpriority="high" />
@@ -9,7 +7,7 @@
 <section class="hh-hero">
   <h1>{{ .Params.heroHeading | default "We're glad you're here." }}</h1>
   {{ range .Params.heroSubtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
-  <a href="{{ .Params.eventbriteUrl | default site.Params.eventbriteUrl }}?utm_source=cuddleseattle&utm_medium=website&utm_content=hero-cta" class="hh-btn" target="_blank" rel="noopener">{{ .Params.heroCta | default "See upcoming events" }}</a>
+  <a href="{{ (site.GetPage "/events").RelPermalink }}" class="hh-btn">{{ .Params.heroCta | default "See all upcoming events" }}</a>
 </section>
 
 <!-- Body copy -->
@@ -30,22 +28,7 @@
 {{ partial "testimonials.html" . }}
 
 <!-- Events widget -->
-<section class="hh-events">
-  <h2>Upcoming events</h2>
-  {{ if $events }}
-    {{ range $events }}
-    <div class="hh-event-card">
-      <div class="event-info">
-        <div class="event-title">{{ .title }}</div>
-        <div class="event-meta">{{ .date_display }}{{ with .location }} · {{ . }}{{ end }}</div>
-      </div>
-      <a href="{{ .ticket_url }}?utm_source=cuddleseattle&utm_medium=website&utm_content=events-widget-home" class="hh-btn" target="_blank" rel="noopener">Register</a>
-    </div>
-    {{ end }}
-  {{ else }}
-  <p>No upcoming events listed yet. <a href="{{ site.Params.eventbriteUrl }}" target="_blank" rel="noopener">Check Eventbrite</a> for the latest.</p>
-  {{ end }}
-</section>
+{{ partial "events.html" (dict "cncOnly" true "heading" "Upcoming events" "utmContent" "events-widget-home") }}
 
 <!-- Reassurance card -->
 <a href="{{ (site.GetPage "/learn-more").RelPermalink }}" class="hh-info-card">
