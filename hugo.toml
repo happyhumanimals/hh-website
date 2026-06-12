@@ -36,6 +36,7 @@ disableKinds = ["taxonomy", "term"]
   showAuthor = false
   showReadingTime = false
   showTableOfContents = false
+  showPagination = false
 
 [[menus.main]]
   name = "Home"
