@@ -1,6 +1,6 @@
 ---
-title: "Upcoming Events"
-seoTitle: "Happy Humanimals — Upcoming Events"
+title: "All Upcoming Events"
+seoTitle: "Happy Humanimals — All Upcoming Events"
 description: "Everything coming up at Happy Humanimals — Cuddles & Connection, Men's, and Extended Play events in Seattle."
 ---
 
