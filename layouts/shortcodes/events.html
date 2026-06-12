@@ -1,17 +1,5 @@
-{{ $events := site.Data.events }}
-<section class="hh-events">
-  <h2>Upcoming events</h2>
-  {{ if $events }}
-    {{ range $events }}
-    <div class="hh-event-card">
-      <div class="event-info">
-        <div class="event-title">{{ .title }}</div>
-        <div class="event-meta">{{ .date_display }}{{ with .location }} · {{ . }}{{ end }}</div>
-      </div>
-      <a href="{{ .ticket_url }}?utm_source=cuddleseattle&utm_medium=website&utm_content=events-widget-learnmore" class="hh-btn" target="_blank" rel="noopener">Register</a>
-    </div>
-    {{ end }}
-  {{ else }}
-  <p>No upcoming events listed. <a href="{{ site.Params.eventbriteUrl }}" target="_blank" rel="noopener">Check Eventbrite</a> for the latest.</p>
-  {{ end }}
-</section>
+{{ $cncOnly := eq (.Get "cnc_only") "true" }}
+{{ $heading := "Upcoming events" }}
+{{ if isset .Params "heading" }}{{ $heading = .Get "heading" }}{{ end }}
+{{ $utmContent := .Get "utm_content" | default "events-widget" }}
+{{ partial "events.html" (dict "cncOnly" $cncOnly "heading" $heading "utmContent" $utmContent) }}
