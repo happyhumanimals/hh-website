@@ -33,6 +33,10 @@ To us, cuddling means intentionally connecting and may or may not include physic
 - Massaging shoulders
 - Embracing closely
 
+## A few moments from our events
+
+{{< gallery >}}
+
 {{< events cnc_only="true" utm_content="events-widget-learnmore" >}}
 
 ## About us
