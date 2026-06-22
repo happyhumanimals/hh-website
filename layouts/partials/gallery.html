@@ -3,7 +3,7 @@
     <div class="hh-gallery-slide">
       <figure>
         <img src="/images/2026-03-workshop.jpg" alt="Participants sitting together on cushions during a workshop discussion, laughing together." width="1800" height="1200" loading="lazy">
-        <figcaption></figcaption>
+        <figcaption>Communication skills workshop</figcaption>
       </figure>
     </div>
     <div class="hh-gallery-slide">
@@ -68,12 +68,8 @@
     }
 
     function goTo(index) {
-      var isWrap = index < 0 || index >= slides.length;
-      var wrapped = ((index % slides.length) + slides.length) % slides.length;
-      track.scrollTo({
-        left: slides[wrapped].offsetLeft,
-        behavior: isWrap ? "instant" : "smooth",
-      });
+      index = Math.max(0, Math.min(slides.length - 1, index));
+      track.scrollTo({ left: slides[index].offsetLeft, behavior: "smooth" });
     }
 
     function updateDots() {
