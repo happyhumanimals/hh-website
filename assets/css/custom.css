@@ -355,11 +355,26 @@ article .max-w-prose {
   scroll-snap-align: start;
 }
 
+.hh-gallery-slide figure {
+  margin: 0;
+}
+
 .hh-gallery-slide img {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 0.5rem;
+}
+
+.hh-gallery-slide figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--hh-text-muted);
+  text-align: center;
+}
+
+.hh-gallery-slide figcaption:empty {
+  display: none;
 }
 
 .hh-gallery-btn {

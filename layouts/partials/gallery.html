@@ -1,19 +1,34 @@
 <div class="hh-gallery">
   <div class="hh-gallery-track" tabindex="0" aria-label="Photos from our events">
     <div class="hh-gallery-slide">
-      <img src="/images/2026-03-workshop.jpg" alt="Participants sitting together on cushions during a workshop discussion, laughing together." width="1800" height="1200" loading="lazy">
+      <figure>
+        <img src="/images/2026-03-workshop.jpg" alt="Participants sitting together on cushions during a workshop discussion, laughing together." width="1800" height="1200" loading="lazy">
+        <figcaption></figcaption>
+      </figure>
     </div>
     <div class="hh-gallery-slide">
-      <img src="/images/2026-10-laugh-circle.jpg" alt="Three participants laughing together in a warm embrace during open connection time." width="1800" height="1200" loading="lazy">
+      <figure>
+        <img src="/images/2026-10-laugh-circle.jpg" alt="Three participants laughing together in a warm embrace during open connection time." width="1800" height="1200" loading="lazy">
+        <figcaption></figcaption>
+      </figure>
     </div>
     <div class="hh-gallery-slide">
-      <img src="/images/2026-23-hair.jpg" alt="One participant gently combing another's hair while they rest together." width="1800" height="1200" loading="lazy">
+      <figure>
+        <img src="/images/2026-23-hair.jpg" alt="One participant gently combing another's hair while they rest together." width="1800" height="1200" loading="lazy">
+        <figcaption></figcaption>
+      </figure>
     </div>
     <div class="hh-gallery-slide">
-      <img src="/images/2026-14-spoon-drawer.jpg" alt="A row of participants resting peacefully together during open connection time." width="1800" height="1200" loading="lazy">
+      <figure>
+        <img src="/images/2026-14-spoon-drawer.jpg" alt="A row of participants resting peacefully together during open connection time." width="1800" height="1200" loading="lazy">
+        <figcaption></figcaption>
+      </figure>
     </div>
     <div class="hh-gallery-slide">
-      <img src="/images/2026-06-mens.jpg" alt="Two participants at a men's Cuddles & Connection event holding hands quietly." width="1800" height="1199" loading="lazy">
+      <figure>
+        <img src="/images/2026-06-mens.jpg" alt="Two participants at a men's Cuddles & Connection event holding hands quietly." width="1800" height="1199" loading="lazy">
+        <figcaption></figcaption>
+      </figure>
     </div>
   </div>
   <button type="button" class="hh-gallery-btn hh-gallery-prev" aria-label="Previous photo">
@@ -53,8 +68,12 @@
     }
 
     function goTo(index) {
-      index = Math.max(0, Math.min(slides.length - 1, index));
-      track.scrollTo({ left: slides[index].offsetLeft, behavior: "smooth" });
+      var isWrap = index < 0 || index >= slides.length;
+      var wrapped = ((index % slides.length) + slides.length) % slides.length;
+      track.scrollTo({
+        left: slides[wrapped].offsetLeft,
+        behavior: isWrap ? "instant" : "smooth",
+      });
     }
 
     function updateDots() {
