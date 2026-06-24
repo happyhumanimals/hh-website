@@ -1,0 +1,12 @@
+{{ define "main" }}
+<article>
+  <div class="max-w-prose">
+    <h1 class="mb-3 text-4xl">Page not found 🔎</h1>
+    <img src="{{ "images/feet-404.jpg" | relURL }}" alt="Several pairs of feet in cozy, mismatched socks resting together on cushions and blankets." width="1800" height="569" class="hh-404-photo">
+    <div class="prose dark:prose-invert">
+      <p>This page got lost in the cuddle pile.</p>
+      <p>If you're new, <a href="{{ "/" | relURL }}">start here</a>. Otherwise, <a href="{{ (site.GetPage "/events").RelPermalink }}">see all events</a>.</p>
+    </div>
+  </div>
+</article>
+{{ end }}

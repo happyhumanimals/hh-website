@@ -374,6 +374,15 @@ article .max-w-prose {
   display: block;
 }
 
+/* 404 page photo */
+.hh-404-photo {
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* Photo carousel */
 .hh-gallery {
   position: relative;
