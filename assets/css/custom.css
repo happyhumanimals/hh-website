@@ -434,6 +434,19 @@ article .max-w-prose {
   }
 }
 
+/* Feet footer */
+.hh-feet-footer {
+  margin-top: 1.5rem;
+}
+
+.hh-feet-footer img {
+  width: 100%;
+  height: clamp(50px, 8vw, 100px);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 /* Footer */
 footer .hh-footer-links {
   display: flex;
