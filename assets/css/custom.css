@@ -192,6 +192,15 @@ article .max-w-prose {
   color: #fff;
 }
 
+/* Congo's prose link-hover style (themes/congo/tailwind.config.js) carries higher
+   specificity than .hh-btn and resets border-radius on hover for any <a> nested in
+   .prose. Re-assert it here, scoped to our button classes so plain text links inside
+   prose keep Congo's intended hover highlight untouched. */
+.prose .hh-btn:hover,
+.prose .hh-btn-secondary:hover {
+  border-radius: 0.375rem;
+}
+
 /* Body content area */
 .hh-body {
   max-width: 680px;
