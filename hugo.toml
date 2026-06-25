@@ -9,7 +9,7 @@ disableKinds = ["taxonomy", "term"]
   home = ["HTML"]
 
 [params]
-  colorScheme = "purple"
+  colorScheme = "orchid"
   defaultAppearance = "light"
   autoSwitchAppearance = false
   description = "Platonic touch and consent workshops in Seattle. Cuddles & Connection events for curious, hopeful, and nervous newcomers."
