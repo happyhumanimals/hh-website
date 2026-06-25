@@ -272,6 +272,10 @@ article .max-w-prose {
   max-width: 680px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
+  /* .prose resets font-size to 1rem sitewide (themes/congo/tailwind.config.js); pin it
+     back to the page's normal text-lg so event titles don't shrink just because this
+     widget happens to be embedded inside prose content (Learn More, /events). */
+  font-size: 1.125rem;
 }
 
 /* Inside prose (learn-more shortcode), strip horizontal padding so
@@ -322,6 +326,21 @@ article .max-w-prose {
   margin-top: 1rem;
   text-align: center;
   color: var(--hh-text-muted);
+}
+
+/* Same reasoning as the font-size pin above: Tailwind Typography's prose styling
+   underlines/rebolds/recolors any bare <a>, and gives it a highlight box on hover.
+   Re-assert the plain-link look this has everywhere else, regardless of placement. */
+.hh-events-more a {
+  color: var(--hh-brand);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.hh-events-more a:hover {
+  color: var(--hh-brand-hover);
+  background-color: transparent;
+  text-decoration: underline;
 }
 
 /* Secondary CTA area */
