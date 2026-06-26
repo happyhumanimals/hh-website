@@ -28,7 +28,7 @@
 {{ partial "testimonials.html" . }}
 
 <!-- Events widget -->
-{{ partial "events.html" (dict "cncOnly" true "heading" "Upcoming events" "utmContent" "events-widget-home") }}
+{{ partial "events.html" (dict "cncOnly" true "heading" "Upcoming events" "placement" "events-widget-home") }}
 
 <!-- Reassurance card -->
 <a href="{{ (site.GetPage "/learn-more").RelPermalink }}" class="hh-info-card">

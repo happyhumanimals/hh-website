@@ -36,7 +36,7 @@ To us, cuddling means intentionally connecting and may or may not include physic
 - Embracing closely
 
 
-{{< events cnc_only="true" utm_content="events-widget-learnmore" >}}
+{{< events cnc_only="true" placement="events-widget-learnmore" >}}
 
 ## About us
 

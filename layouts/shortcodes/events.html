@@ -1,5 +1,5 @@
 {{ $cncOnly := eq (.Get "cnc_only") "true" }}
 {{ $heading := "Upcoming events" }}
 {{ if isset .Params "heading" }}{{ $heading = .Get "heading" }}{{ end }}
-{{ $utmContent := .Get "utm_content" | default "events-widget" }}
-{{ partial "events.html" (dict "cncOnly" $cncOnly "heading" $heading "utmContent" $utmContent) }}
+{{ $placement := .Get "placement" | default "events-widget" }}
+{{ partial "events.html" (dict "cncOnly" $cncOnly "heading" $heading "placement" $placement) }}

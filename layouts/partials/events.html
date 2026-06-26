@@ -1,7 +1,7 @@
 {{ $events := site.Data.events }}
 {{ $cncOnly := .cncOnly }}
 {{ $heading := .heading }}
-{{ $utmContent := .utmContent | default "events-widget" }}
+{{ $placement := .placement | default "events-widget" }}
 
 {{ if $cncOnly }}
   {{ $filtered := slice }}
@@ -22,7 +22,7 @@
         <div class="event-title">{{ .title }}</div>
         <div class="event-meta">{{ .date_display }}{{ with .location }} · {{ . }}{{ end }}</div>
       </div>
-      <a href="{{ .ticket_url }}?utm_source=cuddleseattle&utm_medium=website&utm_content={{ $utmContent }}" class="hh-btn" target="_blank" rel="noopener">Register</a>
+      <a href="{{ .ticket_url }}?gc_placement={{ $placement }}&aff=website" class="hh-btn" target="_blank" rel="noopener">Register</a>
     </div>
     {{ end }}
   {{ else }}

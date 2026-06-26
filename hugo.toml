@@ -60,6 +60,6 @@ disableKinds = ["taxonomy", "term"]
 [[menus.footer]]
   name = "Eventbrite"
   title = "Visit us on Eventbrite"
-  url = "https://www.eventbrite.com/o/69485758173?utm_source=cuddleseattle&utm_medium=website&utm_content=footer"
+  url = "https://www.eventbrite.com/o/69485758173?gc_placement=footer"
   weight = 3
   params = {target = "_blank", rel = "noopener"}

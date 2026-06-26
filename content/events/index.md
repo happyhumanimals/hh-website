@@ -6,4 +6,4 @@ description: "Everything coming up at Happy Humanimals — Cuddles & Connection,
 
 First time? Start with **Cuddles & Connection**.
 
-{{< events heading="" utm_content="events-page" >}}
+{{< events heading="" placement="events-page" >}}
