@@ -2,7 +2,7 @@
 title: "Happy Humanimals"
 seoTitle: "Happy Humanimals — Cuddle Party™-Style Events in Seattle"
 description: "Cuddle and connection events in Seattle that build community, welcome curious and nervous newcomers, and teach consent skills you can take into your whole life."
-images: ["images/cuddles-and-connection.jpg"]
+images: ["images/2026-06-cuddles-and-connection.jpg"]
 heroHeading: "We're glad you're here."
 heroSubtitle:
   - "Cuddle Party™-style events, education, and community in Seattle."

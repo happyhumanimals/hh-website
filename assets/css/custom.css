@@ -125,7 +125,7 @@ article .max-w-prose {
   height: auto;
   max-height: 480px;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 80%;
   border-radius: 0.5rem;
   display: block;
 }
