@@ -81,6 +81,8 @@ jobs:
               event_data["location"] = location
             events.append(event_data)
 
+          events.sort(key=lambda e: datetime.datetime.fromisoformat(e["date_iso"]))
+
           with open("data/events.json", "w") as f:
             json.dump(events, f, indent=2)
 
