@@ -40,7 +40,7 @@ To us, cuddling means intentionally connecting and may or may not include physic
 
 ## About us
 
-Happy Humanimals was founded in Seattle in 2022 with the intention to create community cuddle experiences that are about self-discovery, connection, and play. To enable this, all touch will be optional, fully clothed, and platonic at all times. We structure the evening to empower you to choose the experience that is right for you.
+Happy Humanimals was founded in Seattle in 2022 with the intention to create community cuddle experiences that are about self-discovery, connection, and play. To enable this, all touch is optional, fully clothed, and platonic at all times. We structure our events to empower you to choose the experience that is right for you.
 
 Happy Humanimals is lovingly inspired by [Cuddle Party™](https://www.cuddleparty.com/) and is co-created and co-facilitated by Anna Joy Reedy ([Somatic Experiencing Practitioner](https://directory.traumahealing.org/practitioner/anna-joy-reedy/), [Certified Cuddlist](https://cuddlist.com/annajoy)) and Ian Wilson ([Certified Cuddlist](https://cuddlist.com/ianw)).
 
