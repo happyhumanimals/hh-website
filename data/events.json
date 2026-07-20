@@ -12,5 +12,26 @@
     "date_iso": "2026-08-16T10:15:00-07:00",
     "ticket_url": "https://www.eventbrite.com/e/emerald-forest-extended-play-tickets-1990352501912",
     "location": "Bellevue, WA"
+  },
+  {
+    "title": "Cuddles & Connection",
+    "date_display": "Wednesday, September 9 \u00b7 6:00\u201310:00 PM",
+    "date_iso": "2026-09-09T18:00:00-07:00",
+    "ticket_url": "https://www.eventbrite.com/e/cuddles-connection-tickets-1994592369470",
+    "location": "Seattle, WA"
+  },
+  {
+    "title": "Extended Play with Gong Bath",
+    "date_display": "Friday, September 25 \u00b7 6:00\u201310:00 PM",
+    "date_iso": "2026-09-25T18:00:00-07:00",
+    "ticket_url": "https://www.eventbrite.com/e/extended-play-with-gong-bath-tickets-1994594743571",
+    "location": "Seattle, WA"
+  },
+  {
+    "title": "Cuddles & Connection",
+    "date_display": "Friday, October 9 \u00b7 6:00\u201310:00 PM",
+    "date_iso": "2026-10-09T18:00:00-07:00",
+    "ticket_url": "https://www.eventbrite.com/e/cuddles-connection-tickets-1994596184882",
+    "location": "Seattle, WA"
   }
 ]
