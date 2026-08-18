@@ -19,5 +19,12 @@
     "date_iso": "2026-10-09T18:00:00-07:00",
     "ticket_url": "https://www.eventbrite.com/e/cuddles-connection-tickets-1994596184882",
     "location": "Seattle, WA"
+  },
+  {
+    "title": "Men's Cuddles & Connection",
+    "date_display": "Friday, October 16 \u00b7 6:00\u201310:00 PM",
+    "date_iso": "2026-10-16T18:00:00-07:00",
+    "ticket_url": "https://www.eventbrite.com/e/mens-cuddles-connection-tickets-1998323876508",
+    "location": "Seattle, WA"
   }
 ]
