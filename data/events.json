@@ -26,5 +26,12 @@
     "date_iso": "2026-10-16T18:00:00-07:00",
     "ticket_url": "https://www.eventbrite.com/e/mens-cuddles-connection-tickets-1998323876508",
     "location": "Seattle, WA"
+  },
+  {
+    "title": "Extended Play",
+    "date_display": "Wednesday, October 21 \u00b7 6:00\u201310:00 PM",
+    "date_iso": "2026-10-21T18:00:00-07:00",
+    "ticket_url": "https://www.eventbrite.com/e/extended-play-tickets-1998691335588",
+    "location": "Seattle, WA"
   }
 ]
