@@ -19,5 +19,26 @@
     "date_iso": "2026-12-09T18:00:00-08:00",
     "ticket_url": "https://www.eventbrite.com/e/cuddles-connection-tickets-2002983526647",
     "location": "Seattle, WA"
+  },
+  {
+    "title": "Extended Play with Gong Sound Immersion",
+    "date_display": "Wednesday, January 13 \u00b7 6:00\u201310:00 PM",
+    "date_iso": "2027-01-13T18:00:00-08:00",
+    "ticket_url": "https://www.eventbrite.com/e/extended-play-with-gong-sound-immersion-tickets-2004243750009",
+    "location": "Seattle, WA"
+  },
+  {
+    "title": "Cuddles & Connection",
+    "date_display": "Friday, January 22 \u00b7 6:00\u201310:00 PM",
+    "date_iso": "2027-01-22T18:00:00-08:00",
+    "ticket_url": "https://www.eventbrite.com/e/cuddles-connection-tickets-2004243880399",
+    "location": "Seattle, WA"
+  },
+  {
+    "title": "Men's Cuddles & Connection",
+    "date_display": "Wednesday, January 27 \u00b7 6:00\u201310:00 PM",
+    "date_iso": "2027-01-27T18:00:00-08:00",
+    "ticket_url": "https://www.eventbrite.com/e/mens-cuddles-connection-tickets-2004244137167",
+    "location": "Seattle, WA"
   }
 ]
